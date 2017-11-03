@@ -1,3 +1,20 @@
-<p>
-  list-contact works!
-</p>
+<h1>Liste de contact</h1>
+
+<ul class="listContact">
+  <li *ngFor="let contact of contacts"> <!--NgFor pour parcourir la liste de contact-->
+    {{contact.nickname}}
+    {{contact.name}}
+    {{contact.Adresse}}
+    {{contact.Tel}}
+    {{contact.mail}}
+  </li>
+
+</ul>
+
+<ul>
+  <li *ngFor="let fakeUser of fakeContact">
+    {{fakeUser.name}}
+    {{fakeUser.username}}
+    {{fakeUser.email}}
+  </li>
+</ul>
