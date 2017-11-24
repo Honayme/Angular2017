@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs/Observable";
 import { Pizza } from  './pizza';
 import 'rxjs/add/operator/map';
-
+import 'rxjs/add/operator/catch';
 @Injectable()
 export class PizzaCloud9Service {
   private url = 'https://meanstackpizzasfactory-honayme.c9users.io/pizza'
@@ -14,23 +14,27 @@ export class PizzaCloud9Service {
       return this.http.get<Pizza[]>(this.url)
   }
 
-
   getPizzaById(id): Observable<Pizza[]>{
     return this.http.get<Pizza[]>(this.url+"/"+id)
   }
+
+  savePizza(data): Observable<Pizza[]>{
+    return this.http.post<Pizza[]>(this.url, data)
+  }
+
 //Here is a promess but we need a observable
 //Observables can be quite powerful and are worth learning about if you are making lots of http calls
-  showPizza(id) {
-    return new Promise((resolve, reject) => {
-      this.http.get('/pizza/' + id)
-        .map(res => <Pizza[]> res.json())
-        .subscribe(res => {
-          resolve(res)
-        }, (err) => {
-          reject(err);
-        });
-    });
-  }
+//   showPizza(id) {
+//     return new Promise((resolve, reject) => {
+//       this.http.get('/pizza/' + id)
+//         .map(res => <Pizza[]> res.json())
+//         .subscribe(res => {
+//           resolve(res)
+//         }, (err) => {
+//           reject(err);
+//         });
+//     });
+//   }
 
   // savePizza(data) {
   //   return new Promise((resolve, reject) => {

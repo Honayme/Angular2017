@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PizzaComponent } from './pizza/pizza.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
 import {PizzaDescComponent} from './pizza-desc/pizza-desc.component';
+import {PizzaCreateComponent} from './pizza-create/pizza-create.component';
 
 
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   // {path: '', component: AppComponent},
   {path: 'pizza', component: PizzaComponent},
   {path: 'pizza/:id', component: PizzaDescComponent},
+  {path: 'pizza/create', component: PizzaCreateComponent},
   {path: 'ingredient', component: IngredientComponent},
 ];
 

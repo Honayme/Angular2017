@@ -12,9 +12,10 @@ export class PizzaComponent implements OnInit {
 
   constructor(private moncul: PizzaCloud9Service ) { }
 
+  // When pizza arrive on our data stream
+  // set it equal to our local listPizza array.
   ngOnInit() {
     this.moncul.get()
-    // When pizza arrive on our data stream, set it equal to our local listPizza array.
       .subscribe(res => {
         this.listPizza = res;
         console.log((this.listPizza));

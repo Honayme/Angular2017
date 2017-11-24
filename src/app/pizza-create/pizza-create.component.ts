@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PizzaCloud9Service } from '../pizza-cloud9.service';
+import { Pizza } from  '../pizza';
 
 @Component({
   selector: 'app-pizza-create',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PizzaCreateComponent implements OnInit {
 
-  constructor() { }
+  createPizza = {};
+
+  constructor(private route: Router, private pizzaCloud9Service: PizzaCloud9Service) { }
 
   ngOnInit() {
+    this.pizzaCloud9Service.savePizza(this.createPizza)
+      .subscribe(res => {
+        this.createPizza  = res;
+        console.log(this.createPizza );
+      })
   }
 
 }
