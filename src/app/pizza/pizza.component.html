@@ -1,0 +1,27 @@
+<div class="container pizza">
+  <h1>Pizza </h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>id</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let pizza of listPizza">
+      <td>{{ pizza.name}}</td>
+      <td>{{ pizza.price}}</td>
+      <td>{{ pizza.desc}}</td>
+      <td>{{ pizza._id}}</td>
+      <td>
+        <a [routerLink]="['/pizza/' + pizza._id]" class="btn btn-default btn-lg">
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

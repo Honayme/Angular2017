@@ -1,0 +1,9 @@
+<div *ngIf="pizzaDesc" class="container">
+  <h1>{{ pizzaDesc.name}}</h1>
+  <dl class="list">
+    <dt>Price</dt>
+    <dd>{{pizzaDesc.price}}</dd>
+    <dt>Update Date</dt>
+    <dd>{{ pizzaDesc.update_at}}</dd>
+  </dl>
+</div>
