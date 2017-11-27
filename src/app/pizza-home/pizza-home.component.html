@@ -1,0 +1,19 @@
+
+
+<div class="container Pizza">
+  <div class="row">
+    <div *ngFor="let pizza of listPizza" class="col-lg-4">
+      <div class="card">
+        <h3 class="card-header">{{ pizza.name}}</h3>
+
+
+        <img *ngIf="pizza.picture" [src]="pizza.picture" alt="pizza">
+        <div class="card-body">
+          <p class="card-text">{{pizza.desc}}</p>
+          <p class="card-text">{{pizza.price | currency:'EUR'}}</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { PizzaCloud9Service } from '../pizza-cloud9.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {PizzaCloud9Service} from '../pizza-cloud9.service';
 
 @Component({
   selector: 'app-pizza-desc',
@@ -11,7 +11,8 @@ export class PizzaDescComponent implements OnInit {
 
   pizzaDesc = {};
 
-  constructor(private route: ActivatedRoute, private pizzaCloud9Service: PizzaCloud9Service) { }
+  constructor(private route: ActivatedRoute, private pizzaCloud9Service: PizzaCloud9Service) {
+  }
 
   ngOnInit() {
     this.pizzaCloud9Service.getPizzaById((this.route.snapshot.params['id']))
@@ -19,7 +20,7 @@ export class PizzaDescComponent implements OnInit {
         this.pizzaDesc = res;
         console.log(this.pizzaDesc);
       })
-    }
+  }
 }
 
 

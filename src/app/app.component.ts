@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {PizzaCloud9Service} from './pizza-cloud9.service';
+import {Pizza} from './pizza/pizza';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Pizza Mafiosi';
+  listPizza: any;
+
+  constructor(private servicePizza: PizzaCloud9Service) {
+  }
+
+  ngOnInit() {
+    this.servicePizza.get()
+      .subscribe(res => {
+        this.listPizza = res;
+        console.log((this.listPizza));
+      })
+  }
 }

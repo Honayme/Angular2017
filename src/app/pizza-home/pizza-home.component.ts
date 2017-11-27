@@ -1,22 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import {PizzaCloud9Service} from '../pizza-cloud9.service';
-import {Pizza} from './pizza';
+import {Pizza} from '../pizza/pizza';
 import { CurrencyPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-pizza',
-  templateUrl: './pizza.component.html',
-  styleUrls: ['./pizza.component.css']
+  selector: 'app-pizza-home',
+  templateUrl: './pizza-home.component.html',
+  styleUrls: ['./pizza-home.component.css']
 })
-export class PizzaComponent implements OnInit {
-
+export class PizzaHomeComponent implements OnInit {
+  title = 'Pizza Mafiosi';
   listPizza: any;
 
   constructor(private servicePizza: PizzaCloud9Service) {
   }
 
-  // When pizza arrive on our data stream
-  // set it equal to our local listPizza array.
   ngOnInit() {
     this.servicePizza.get()
       .subscribe(res => {
@@ -24,5 +23,4 @@ export class PizzaComponent implements OnInit {
         console.log((this.listPizza));
       })
   }
-
 }

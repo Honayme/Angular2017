@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {IngredientCloud9Service} from '../ingredient-cloud9.service';
+import {Ingredient} from './ingredient';
+
 
 @Component({
   selector: 'app-ingredient',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IngredientComponent implements OnInit {
 
-  constructor() { }
+  listIngredient: any;
+
+  constructor(private serviceIngredient: IngredientCloud9Service) { }
 
   ngOnInit() {
+    this.serviceIngredient.get()
+      .subscribe(res => {
+        this.listIngredient = res;
+        console.log((this.listIngredient));
+      })
   }
 
 }
